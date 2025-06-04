@@ -247,14 +247,15 @@ async function loginWithUsernamePassword(username, password) {
 
 function redirectUser(profile) {
   const redirects = {
-    estudiante: '/frontend/pages/estudiante.html',
-    docente: '/frontend/pages/profesor.html',
-    padre: '/frontend/pages/padre.html',
-    admin: '/frontend/pages/admin.html'
+    estudiante: 'pages/estudiante.html',
+    docente: 'pages/profesor.html',
+    padre: 'pages/padre.html',
+    admin: 'pages/admin.html'
   };
 
-  window.location.href = `${window.location.origin}${redirects[profile]}`;
+  window.location.href = redirects[profile];
 }
+
 
 async function forgotPassword() {
   const username = document.getElementById('username').value;
