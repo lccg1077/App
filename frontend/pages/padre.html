@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Padre - EduConnect</title>
+    <link rel="stylesheet" href="../assets/css/padre.css">
+    
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="profile-section">
+                <div class="profile-avatar">👨‍👩‍👧‍👦</div>
+                <div class="profile-name">Padre de Familia</div>
+                <div class="profile-role">Portal EduConnect</div>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a class="nav-link active" onclick="mostrarSeccion('dashboard')" data-section="dashboard">
+                            <span class="nav-icon">🏠</span>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="mostrarSeccion('progreso')" data-section="progreso">
+                            <span class="nav-icon">📊</span>
+                            Progreso Académico
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="mostrarSeccion('informes')" data-section="informes">
+                            <span class="nav-icon">📄</span>
+                            Informes PDF
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="mostrarSeccion('comunicacion')" data-section="comunicacion">
+                            <span class="nav-icon">💬</span>
+                            Comunicación
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" onclick="mostrarSeccion('configuracion')" data-section="configuracion">
+                            <span class="nav-icon">⚙️</span>
+                            Configuración
+                        </a>
+                    </li>
+                </ul>
+                
+                <!-- Botón de Salir -->
+                <div style="position: absolute; bottom: 30px; left: 20px; right: 20px;">
+                    <a class="nav-link" onclick="cerrarSesion()" style="background: rgba(220, 53, 69, 0.1); color: #dc3545; justify-content: center;">
+                        <span class="nav-icon">🚪</span>
+                        Cerrar Sesión
+                    </a>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="header">
+                <h1>¡Bienvenido al Portal de Padres!</h1>
+                <p>Mantente conectado con el progreso académico de tu hijo</p>
+            </header>
+
+            <!-- Dashboard -->
+            <section id="dashboard" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">24</div>
+                        <div class="stat-label">Ejercicios Completados</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">Progreso General</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">⭐⭐⭐</div>
+                        <div class="stat-label">Estrellas Ganadas</div>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h2>Resumen de Actividades</h2>
+                    <p>Tu hijo ha mostrado un excelente progreso esta semana. Ha completado todas las tareas de matemáticas y ha mejorado significativamente en resolución de problemas.</p>
+                    <a href="#" class="btn">Ver Detalles</a>
+                </div>
+            </section>
+
+            <!-- Progreso -->
+            <section id="progreso" class="content-section">
+                <div class="card">
+                    <h2>Progreso Académico</h2>
+                    <p>Aquí puedes visualizar el rendimiento detallado de tu hijo por cada temática y asignatura.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-number">90%</div>
+                            <div class="stat-label">Matemáticas</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">78%</div>
+                            <div class="stat-label">Ciencias</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">92%</div>
+                            <div class="stat-label">Lenguaje</div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn">Ver Informe Completo</a>
+                </div>
+            </section>
+
+            <!-- Informes -->
+            <section id="informes" class="content-section">
+                <div class="card">
+                    <h2>Informes PDF</h2>
+                    <p>Descarga informes detallados del desempeño académico de tu hijo en formato PDF.</p>
+                    
+                    <div style="margin-top: 20px;">
+                        <h3 style="margin-bottom: 15px; color: #333;">Informes Disponibles:</h3>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: rgba(102, 126, 234, 0.1); border-radius: 8px;">
+                                <span>📄 Informe Mensual - Junio 2025</span>
+                                <a href="#" class="btn">Descargar</a>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; background: rgba(102, 126, 234, 0.1); border-radius: 8px;">
+                                <span>📄 Informe Trimestral - Q2 2025</span>
+                                <a href="#" class="btn">Descargar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Comunicación -->
+            <section id="comunicacion" class="content-section">
+                <div class="card">
+                    <h2>Comunicación con el Docente</h2>
+                    <p>Mantén una comunicación directa con los profesores de tu hijo.</p>
+                    
+                    <div class="message-form">
+                        <form>
+                            <div class="form-group">
+                                <label for="asunto">Asunto:</label>
+                                <input type="text" id="asunto" name="asunto" placeholder="Ingresa el asunto del mensaje">
+                            </div>
+                            <div class="form-group">
+                                <label for="docente">Profesor:</label>
+                                <select id="docente" name="docente" style="width: 100%; padding: 12px; border: 2px solid rgba(102, 126, 234, 0.2); border-radius: 8px;">
+                                    <option value="">Selecciona un profesor</option>
+                                    <option value="matematicas">Prof. María González - Matemáticas</option>
+                                    <option value="ciencias">Prof. Carlos López - Ciencias</option>
+                                    <option value="lenguaje">Prof. Ana Martínez - Lenguaje</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="mensaje">Mensaje:</label>
+                                <textarea id="mensaje" name="mensaje" placeholder="Escribe tu mensaje aquí..."></textarea>
+                            </div>
+                            <button type="submit" class="btn">Enviar Mensaje</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Configuración -->
+            <section id="configuracion" class="content-section">
+                <div class="card">
+                    <h2>Configuración</h2>
+                    <p>Personaliza tu experiencia en el portal y gestiona las notificaciones.</p>
+                    
+                    <div class="message-form">
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" checked style="margin-right: 10px;">
+                                Recibir notificaciones por email
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" checked style="margin-right: 10px;">
+                                Notificaciones de progreso semanal
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" style="margin-right: 10px;">
+                                Recordatorios de tareas pendientes
+                            </label>
+                        </div>
+                        <button class="btn">Guardar Configuración</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../assets/js/padre.js"></script>
+</body>
+</html>

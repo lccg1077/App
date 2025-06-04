@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduConnect - Portal Estudiante</title>
+    <link rel="stylesheet" href="../assets/css/estudiante.css">
+</head>
+<body>
+    <!-- Botón hamburguesa -->
+    <button class="menu-toggle" id="menuToggle">
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+        <div class="hamburger"></div>
+    </button>
+
+    <!-- Menú lateral -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo" id="sidebarAvatar">🐱</div>
+            <h2>EduConnect</h2>
+            <p id="sidebarNombre">Portal Estudiante</p>
+        </div>
+        
+        <div class="sidebar-menu">
+            <div class="menu-section">
+                <div class="menu-section-title">Principal</div>
+                <button class="menu-item active" onclick="mostrarSeccion('inicio')">
+                    <div class="menu-item-icon">🏠</div>
+                    <div class="menu-item-text">Inicio</div>
+                </button>
+                <button class="menu-item" onclick="mostrarSeccion('perfil')">
+                    <div class="menu-item-icon">👤</div>
+                    <div class="menu-item-text">Mi Perfil</div>
+                </button>
+            </div>
+
+            <div class="menu-section">
+                <div class="menu-section-title">Académico</div>
+                <button class="menu-item" onclick="mostrarSeccion('matematicas')">
+                    <div class="menu-item-icon">🔢</div>
+                    <div class="menu-item-text">Matemáticas</div>
+                </button>
+                <button class="menu-item" onclick="mostrarSeccion('progreso')">
+                    <div class="menu-item-icon">📊</div>
+                    <div class="menu-item-text">Mi Progreso</div>
+                </button>
+                <button class="menu-item" onclick="mostrarSeccion('tareas')">
+                    <div class="menu-item-icon">📝</div>
+                    <div class="menu-item-text">Tareas</div>
+                </button>
+            </div>
+
+            <div class="menu-section">
+                <div class="menu-section-title">Extras</div>
+                <button class="menu-item" onclick="mostrarSeccion('juegos')">
+                    <div class="menu-item-icon">🎮</div>
+                    <div class="menu-item-text">Juegos</div>
+                </button>
+                <button class="menu-item" onclick="mostrarSeccion('ayuda')">
+                    <div class="menu-item-icon">❓</div>
+                    <div class="menu-item-text">Ayuda</div>
+                </button>
+            </div>
+
+            <div class="menu-section">
+                <button class="menu-item logout" onclick="cerrarSesion()">
+                    <div class="menu-item-icon">🚪</div>
+                    <div class="menu-item-text">Salir</div>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <!-- Sección Inicio -->
+        <section id="inicio" class="seccion active">
+            <div class="content-header">
+                <span class="greeting-emoji" id="inicioAvatar">🐱</span>
+                <h1 id="saludo">¡Bienvenido a EduConnect!</h1>
+                <p>Tu plataforma de aprendizaje personalizada</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">24</span>
+                    <span class="stat-label">Ejercicios Completados</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">85%</span>
+                    <span class="stat-label">Progreso General</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">⭐⭐⭐</span>
+                    <span class="stat-label">Estrellas Ganadas</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Perfil -->
+        <section id="perfil" class="seccion">
+            <h2>Configuración de Perfil</h2>
+            <form id="formPerfil">
+                <div class="form-group">
+                    <label>Nombre completo</label>
+                    <input type="text" id="nombreEstudiante" placeholder="Ingresa tu nombre completo">
+                </div>
+                <div class="form-group">
+                    <label>Selecciona tu avatar</label>
+                    <div class="avatar-gallery">
+                        <div class="avatar-option active" data-avatar="🐱" data-name="Gatito Curioso">
+                            <div class="avatar-icon">🐱</div>
+                            <div class="avatar-name">Gatito Curioso</div>
+                        </div>
+                        <div class="avatar-option" data-avatar="🐶" data-name="Perrito Inteligente">
+                            <div class="avatar-icon">🐶</div>
+                            <div class="avatar-name">Perrito Inteligente</div>
+                        </div>
+                        <div class="avatar-option" data-avatar="🦊" data-name="Zorro Astuto">
+                            <div class="avatar-icon">🦊</div>
+                            <div class="avatar-name">Zorro Astuto</div>
+                        </div>
+                        <div class="avatar-option" data-avatar="🐵" data-name="Mono Travieso">
+                            <div class="avatar-icon">🐵</div>
+                            <div class="avatar-name">Mono Travieso</div>
+                        </div>
+                        <div class="avatar-option" data-avatar="🦄" data-name="Unicornio Mágico">
+                            <div class="avatar-icon">🦄</div>
+                            <div class="avatar-name">Unicornio Mágico</div>
+                        </div>
+                        <div class="avatar-option" data-avatar="🐺" data-name="Lobo Sabio">
+                            <div class="avatar-icon">🐺</div>
+                            <div class="avatar-name">Lobo Sabio</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Nombre del acudiente</label>
+                    <input type="text" id="nombreAcudiente" placeholder="Nombre completo del acudiente">
+                </div>
+                <div class="form-group">
+                    <label>Teléfono del acudiente</label>
+                    <input type="tel" id="telefonoAcudiente" placeholder="Número de teléfono del acudiente">
+                </div>
+                <button type="submit" class="btn">Guardar cambios</button>
+            </form>
+        </section>
+
+        <!-- Sección Matemáticas -->
+        <section id="matematicas" class="seccion">
+            <h2>Temáticas de Matemáticas</h2>
+            <p style="color: #6c757d; margin-bottom: 25px;">Selecciona la temática que quieres practicar</p>
+            
+            <div class="role-grid">
+                <div class="role-card estudiante" onclick="iniciarTematica('sumas')">
+                    <div class="card-icon">➕</div>
+                    <div class="card-title">Sumas</div>
+                    <div class="card-description">Practica operaciones de suma básicas y avanzadas</div>
+                </div>
+                <div class="role-card docente" onclick="iniciarTematica('restas')">
+                    <div class="card-icon">➖</div>
+                    <div class="card-title">Restas</div>
+                    <div class="card-description">Domina las operaciones de resta paso a paso</div>
+                </div>
+                <div class="role-card padre" onclick="iniciarTematica('multiplicaciones')">
+                    <div class="card-icon">✖️</div>
+                    <div class="card-title">Multiplicaciones</div>
+                    <div class="card-description">Aprende las tablas de multiplicar de forma divertida</div>
+                </div>
+                <div class="role-card admin" onclick="iniciarTematica('divisiones')">
+                    <div class="card-icon">➗</div>
+                    <div class="card-title">Divisiones</div>
+                    <div class="card-description">Resuelve divisiones simples y complejas</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Progreso -->
+        <section id="progreso" class="seccion">
+            <h2>Mi Progreso Académico</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">92%</span>
+                    <span class="stat-label">Sumas Completadas</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">78%</span>
+                    <span class="stat-label">Restas Completadas</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">65%</span>
+                    <span class="stat-label">Multiplicaciones</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">45%</span>
+                    <span class="stat-label">Divisiones</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Tareas -->
+        <section id="tareas" class="seccion">
+            <h2>Mis Tareas</h2>
+            
+            <div class="tareas-info">
+                <p>📌 Las tareas aparecerán aquí cuando tu profesor las asigne desde el sistema</p>
+            </div>
+
+            <div class="role-grid" id="tareas-container">
+                <!-- Las tareas se cargarán dinámicamente desde la base de datos -->
+                <div class="role-card estudiante">
+                    <div class="card-icon">📚</div>
+                    <div class="card-title">No hay tareas pendientes</div>
+                    <div class="card-description">¡Genial! No tienes tareas pendientes por el momento</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Juegos -->
+        <section id="juegos" class="seccion">
+            <h2>Zona de Juegos Educativos</h2>
+            <p style="color: #6c757d; margin-bottom: 25px;">Aprende jugando con nuestros juegos interactivos</p>
+            
+            <div class="role-grid">
+                <div class="role-card estudiante">
+                    <div class="card-icon">🎯</div>
+                    <div class="card-title">Matemática Target</div>
+                    <div class="card-description">Apunta a la respuesta correcta</div>
+                </div>
+                <div class="role-card docente">
+                    <div class="card-icon">🏆</div>
+                    <div class="card-title">Carrera Numérica</div>
+                    <div class="card-description">Compite resolviendo operaciones</div>
+                </div>
+                <div class="role-card padre">
+                    <div class="card-icon">🧩</div>
+                    <div class="card-title">Puzzle Matemático</div>
+                    <div class="card-description">Arma el rompecabezas numérico</div>
+                </div>
+                <div class="role-card admin">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-title">Rayo Calculador</div>
+                    <div class="card-description">Resuelve lo más rápido posible</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Ayuda -->
+        <section id="ayuda" class="seccion">
+            <h2>Centro de Ayuda</h2>
+            <div class="role-grid">
+                <div class="role-card estudiante">
+                    <div class="card-icon">📖</div>
+                    <div class="card-title">Guías de Estudio</div>
+                    <div class="card-description">Encuentra tutoriales y explicaciones paso a paso</div>
+                </div>
+                <div class="role-card docente">
+                    <div class="card-icon">💬</div>
+                    <div class="card-title">Contactar Profesor</div>
+                    <div class="card-description">Envía un mensaje a tu profesor para resolver dudas</div>
+                </div>
+                <div class="role-card padre">
+                    <div class="card-icon">🔧</div>
+                    <div class="card-title">Soporte Técnico</div>
+                    <div class="card-description">¿Problemas técnicos? Te ayudamos a solucionarlos</div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script type="module" src="../assets/js/estudiante.js"></script>
+</body>
+</html>

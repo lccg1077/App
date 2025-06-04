@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Educativo - Inicio de Sesión</title>
+    <link rel="stylesheet" href="assets/css/login.css">
+    
+   
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Sistema Educativo</h1>
+            <p>Selecciona tu perfil para continuar</p>
+        </div>
+
+        <!-- Selector de Perfil -->
+        <div class="profile-selector" id="profileSelector">
+            <div class="profile-cards">
+                <div class="profile-card estudiante" onclick="selectProfile('estudiante')">
+                    <div class="profile-icon">🎓</div>
+                    <h3>Estudiante</h3>
+                    <p>Accede a tus clases y tareas</p>
+                </div>
+                <div class="profile-card docente" onclick="selectProfile('docente')">
+                    <div class="profile-icon">👨‍🏫</div>
+                    <h3>Docente</h3>
+                    <p>Gestiona tus clases y estudiantes</p>
+                </div>
+                <div class="profile-card padre" onclick="selectProfile('padre')">
+                    <div class="profile-icon">👨‍👩‍👧‍👦</div>
+                    <h3>Padre de Familia</h3>
+                    <p>Monitorea el progreso de tus hijos</p>
+                </div>
+                <div class="profile-card admin" onclick="selectProfile('admin')">
+                    <div class="profile-icon">⚙️</div>
+                    <h3>Administrador</h3>
+                    <p>Gestiona el sistema completo</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Formulario de Login -->
+        <div class="login-form" id="loginForm" style="display: none;">
+            <button class="back-btn" onclick="goBack()">← Volver</button>
+            
+            <div class="form-header">
+                <div class="profile-icon-small" id="selectedIcon">🎓</div>
+                <h2 id="loginTitle">Iniciar Sesión - Estudiante</h2>
+            </div>
+
+            <form id="authForm">
+                <div class="input-group">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <button type="submit" class="login-btn" id="loginBtn">Iniciar Sesión</button>
+                <!-- Enlace para registrarse -->
+                <div class="register-link" style="text-align: center; margin-top: 15px;">
+                <p>¿No tienes cuenta? <a href="register.html">Regístrate aquí</a></p>
+                </div
+            </form>
+
+            <!-- Opción de Google solo para profesores, padres y admin -->
+            <div class="login-options" id="loginOptions" style="display: none;">
+                <div class="divider">
+                    <span>O inicia sesión con</span>
+                </div>
+                
+                <button type="button" class="google-btn" onclick="loginWithGoogle()">
+                    <span class="google-icon">G</span>
+                    Continuar con Google
+                </button>
+            </div>
+
+            <div class="forgot-password">
+                <a href="#" onclick="forgotPassword()">¿Olvidaste tu contraseña?</a>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Iniciando sesión...</p>
+        </div>
+
+        <!-- Messages -->
+        <div class="message" id="message" style="display: none;"></div>
+    </div>
+    <script type="module" src="assets/js/login.js"></script>
+</body>
+</html>

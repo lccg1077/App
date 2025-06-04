@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Profesor - EduConnect</title>
+    <link rel="stylesheet" href="../assets/css/profesor.css">
+</head>
+
+<body>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">🎓</div>
+            <h1 class="sidebar-title">EduConnect</h1>
+            <p class="sidebar-subtitle">Panel Profesor</p>
+        </div>
+
+        <div class="sidebar-profile" onclick="mostrarSeccion(event,'perfil')">
+            <div class="sidebar-avatar" id="sidebarAvatar">MG</div>
+            <div class="sidebar-profile-info">
+                <h3 id="sidebarName">Prof. María González</h3>
+                <span>Matemáticas</span>
+            </div>
+        </div>
+
+        <div class="sidebar-menu">
+            <div class="menu-item active" onclick="mostrarSeccion(event,'dashboard')">
+                <span class="menu-icon">📊</span>
+                <span class="menu-text">Dashboard</span>
+            </div>
+            <div class="menu-item" onclick="mostrarSeccion(event,'seguimiento')">
+                <span class="menu-icon">📈</span>
+                <span class="menu-text">Seguimiento</span>
+            </div>
+            <div class="menu-item" onclick="mostrarSeccion(event,'tareas')">
+                <span class="menu-icon">📝</span>
+                <span class="menu-text">Tareas</span>
+            </div>
+            <div class="menu-item" onclick="mostrarSeccion(event,'asistencia')">
+                <span class="menu-icon">✅</span>
+                <span class="menu-text">Asistencia</span>
+            </div>
+            <div class="menu-item" onclick="mostrarSeccion(event,'informes')">
+                <span class="menu-icon">📄</span>
+                <span class="menu-text">Informes</span>
+            </div>
+            <div class="menu-item" onclick="mostrarSeccion(event,'mensajes')">
+                <span class="menu-icon">💬</span>
+                <span class="menu-text">Mensajes</span>
+            </div>
+            <div class="menu-item" onclick="mostrarSeccion(event,'perfil')">
+                <span class="menu-icon">👤</span>
+                <span class="menu-text">Mi Perfil</span>
+            </div>
+            <div class="menu-item" onclick="mostrarSeccion(event,'configuracion')">
+                <span class="menu-icon">⚙️</span>
+                <span class="menu-text">Configuración</span>
+            </div>
+            <div class="menu-item" onclick="mostrarSeccion(event,'ayuda')">
+                <span class="menu-icon">❓</span>
+                <span class="menu-text">Ayuda</span>
+            </div>
+            <div class="sidebar-logout">
+            <button class="logout-btn" onclick="cerrarSesion()">
+                🚪 Cerrar Sesión
+            </div>
+            </button>
+        </div>
+        
+
+        
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <!-- Dashboard -->
+        <div id="dashboard" class="content-page">
+            <div class="content-header">
+                <h1 class="page-title">
+                    <div class="page-icon">📊</div>
+                    Dashboard General
+                </h1>
+            </div>
+
+            <div class="seccion">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalStudents">32</div>
+                        <div class="stat-label">Estudiantes en mi curso</div>
+                    </div>
+                    <div class="stat-card" style="background: linear-gradient(135deg, #FF9800, #F57C00);">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Tareas Pendientes</div>
+                    </div>
+                    <div class="stat-card" style="background: linear-gradient(135deg, #2196F3, #1976D2);">
+                        <div class="stat-number">85%</div>
+                        <div class="stat-label">Promedio de Asistencia</div>
+                    </div>
+                    <div class="stat-card" style="background: linear-gradient(135deg, #4CAF50, #45a049);">
+                        <div class="stat-number">8.2</div>
+                        <div class="stat-label">Promedio General</div>
+                    </div>
+                </div>
+                <p>Bienvenido a tu panel de control. Aquí puedes ver un resumen de la actividad de tus estudiantes de
+                    primaria.</p>
+            </div>
+        </div>
+
+        <!-- Seguimiento -->
+        <div id="seguimiento" class="content-page" style="display: none;">
+            <div class="content-header">
+                <h1 class="page-title">
+                    <div class="page-icon">📈</div>
+                    Seguimiento de Estudiantes
+                </h1>
+            </div>
+
+            <div class="seccion">
+                <p>Monitor el progreso individual de cada uno de tus <span id="studentsCount">32</span> estudiantes en
+                    tiempo real.</p>
+                <div class="form-group">
+                    <label>Buscar estudiante:</label>
+                    <input type="text" placeholder="Buscar por nombre...">
+                </div>
+                <div class="form-group">
+                    <label>Filtrar por desempeño:</label>
+                    <select>
+                        <option>Todos los estudiantes</option>
+                        <option>Excelente (9.0 - 10.0)</option>
+                        <option>Bueno (7.0 - 8.9)</option>
+                        <option>Regular (5.0 - 6.9)</option>
+                        <option>Necesita apoyo (&lt; 5.0)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tareas -->
+        <div id="tareas" class="content-page" style="display: none;">
+            <div class="content-header">
+                <h1 class="page-title">
+                    <div class="page-icon">📝</div>
+                    Gestión de Tareas
+                </h1>
+            </div>
+
+            <div class="seccion">
+                <div class="form-group">
+                    <label>Título de la tarea:</label>
+                    <input type="text" placeholder="Ej: Sumas y restas con llevadas">
+                </div>
+                <div class="form-group">
+                    <label>Descripción:</label>
+                    <textarea rows="4" placeholder="Describe la tarea y los objetivos de aprendizaje..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Fecha de entrega:</label>
+                    <input type="date">
+                </div>
+                <div class="form-group">
+                    <label>Materia:</label>
+                    <select>
+                        <option>Matemáticas</option>
+                        <option>Español</option>
+                        <option>Ciencias Naturales</option>
+                        <option>Ciencias Sociales</option>
+                        <option>Educación Física</option>
+                        <option>Artística</option>
+                    </select>
+                </div>
+                <button class="btn">✅ Crear Tarea</button>
+            </div>
+        </div>
+
+        <!-- Asistencia -->
+        <div id="asistencia" class="content-page" style="display: none;">
+            <div class="content-header">
+                <h1 class="page-title">
+                    <div class="page-icon">✅</div>
+                    Registro de Asistencia
+                </h1>
+            </div>
+
+            <div class="seccion">
+                <div class="form-group">
+                    <label>Fecha:</label>
+                    <input type="date" value="2025-06-03">
+                </div>
+                <p>Registra la asistencia de tus <span id="attendanceStudents">32</span> estudiantes para el día de hoy.
+                </p>
+                <button class="btn">📋 Tomar Asistencia</button>
+            </div>
+        </div>
+
+        <!-- Informes -->
+        <div id="informes" class="content-page" style="display: none;">
+            <div class="content-header">
+                <h1 class="page-title">
+                    <div class="page-icon">📄</div>
+                    Generación de Informes
+                </h1>
+            </div>
+
+            <div class="seccion">
+                <div class="form-group">
+                    <label>Tipo de informe:</label>
+                    <select>
+                        <option>Informe de Notas</option>
+                        <option>Informe de Asistencia</option>
+                        <option>Informe de Progreso Individual</option>
+                        <option>Informe para Padres</option>
+                        <option>Informe General del Curso</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Período:</label>
+                    <select>
+                        <option>Último mes</option>
+                        <option>Período actual</option>
+                        <option>Primer bimestre</option>
+                        <option>Segundo bimestre</option>
+                        <option>Año académico completo</option>
+                    </select>
+                </div>
+                <button class="btn">📥 Generar PDF</button>
+            </div>
+        </div>
+
+        <!-- Mensajes -->
+        <div id="mensajes" class="content-page" style="display: none;">
+            <div class="content-header">
+                <h1 class="page-title">
+                    <div class="page-icon">💬</div>
+                    Centro de Mensajes
+                </h1>
+            </div>
+
+            <div class="seccion">
+                <p>Comunícate con estudiantes y padres de familia de tu curso.</p>
+                <button class="btn">✍️ Nuevo Mensaje a Padres</button>
+                <button class="btn btn-secondary">📢 Anuncio General</button>
+            </div>
+        </div>
+
+        <!-- Perfil -->
+        <div id="perfil" class="content-page" style="display: none;">
+            <div class="content-header">
+                <h1 class="page-title">
+                    <div class="page-icon">👤</div>
+                    Mi Perfil
+                </h1>
+            </div>
+
+            <div class="seccion">
+                <div class="form-group">
+                    <label>Nombre completo:</label>
+                    <input type="text" id="nombreInput" value="Prof. María González">
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" value="maria.gonzalez@educacion.com">
+                </div>
+                <div class="form-group">
+                    <label>Teléfono:</label>
+                    <input type="tel" value="+57 300 123 4567">
+                </div>
+                <div class="form-group">
+                    <label>Grado que enseña:</label>
+                    <input type="text" value="5° Primaria">
+                </div>
+                <div class="form-group">
+                    <label>Número de estudiantes:</label>
+                    <input type="number" id="studentCountInput" value="32" min="1" max="50">
+                </div>
+                <div class="form-group">
+                    <label>Seleccionar Avatar:</label>
+                    <div class="avatar-selector">
+                        <div class="avatar-option selected"
+                            style="background: linear-gradient(135deg, #FF6B6B, #4ECDC4);"
+                            onclick="selectAvatar(this, 'MG')">MG</div>
+                        <div class="avatar-option" style="background: linear-gradient(135deg, #667eea, #764ba2);"
+                            onclick="selectAvatar(this, '👨‍🏫')">👨‍🏫</div>
+                        <div class="avatar-option" style="background: linear-gradient(135deg, #4CAF50, #45a049);"
+                            onclick="selectAvatar(this, '👩‍🏫')">👩‍🏫</div>
+                        <div class="avatar-option" style="background: linear-gradient(135deg, #FF9800, #F57C00);"
+                            onclick="selectAvatar(this, '🎓')">🎓</div>
+                        <div class="avatar-option" style="background: linear-gradient(135deg, #2196F3, #1976D2);"
+                            onclick="selectAvatar(this, '📚')">📚</div>
+                        <div class="avatar-option" style="background: linear-gradient(135deg, #9C27B0, #7B1FA2);"
+                            onclick="selectAvatar(this, '✏️')">✏️</div>
+                    </div>
+                </div>
+                <button class="btn" onclick="guardarPerfil()">💾 Guardar Cambios</button>
+            </div>
+        </div>
+
+        <!-- Configuración -->
+        <div id="configuracion" class="content-page" style="display: none;">
+            <div class="content-header">
+                <h1 class="page-title">
+                    <div class="page-icon">⚙️</div>
+                    Configuración
+                </h1>
+            </div>
+
+            <div class="seccion">
+                <div class="form-group">
+                    <label>Notificaciones por email:</label>
+                    <select>
+                        <option>Activadas</option>
+                        <option>Solo importantes</option>
+                        <option>Desactivadas</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Idioma:</label>
+                    <select>
+                        <option>Español</option>
+                        <option>English</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Zona horaria:</label>
+                    <select>
+                        <option>UTC-5 (Bogotá)</option>
+                        <option>UTC-6 (Ciudad de México)</option>
+                    </select>
+                </div>
+                <button class="btn">💾 Guardar Configuración</button>
+            </div>
+        </div>
+
+        <!-- Ayuda -->
+        <div id="ayuda" class="content-page" style="display: none;">
+            <div class="content-header">
+                <h1 class="page-title">
+                    <div class="page-icon">❓</div>
+                    Centro de Ayuda
+                </h1>
+            </div>
+
+            <div class="seccion">
+                <p>¿Necesitas ayuda? Consulta nuestras guías o contacta soporte técnico.</p>
+                <button class="btn">📞 Contactar Soporte</button>
+                <button class="btn btn-secondary">📖 Ver Guías</button>
+            </div>
+        </div>
+    </main>
+    <script src="../assets/js/profesor.js"></script>
+
+</body>
+
+</html>
